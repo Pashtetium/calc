@@ -36,6 +36,12 @@ body {
     padding: 0px 20px;
 }
 
+.delete-key {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+}
+
 .buttons {
     background-color: black;
     padding: 5px 20px;
@@ -45,7 +51,7 @@ body {
 .btn {
     width: 50px;
     height: 50px;
-    border-radius: 100%;
+    border-radius: 100%;    
     background-color: hsl(0, 0%, 10%);
     color: hsl(120, 60%, 50%);
     font-weight: 600;

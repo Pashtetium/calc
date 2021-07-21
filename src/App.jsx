@@ -34,7 +34,10 @@ function App() {
 
       </div>
       <div className="delete">
-        delete
+        <img 
+          src="../assets/delete-key.png" 
+          className="delete-key"
+        />
       </div>
       <div className="buttons">
       {buttons.map((item) => {
