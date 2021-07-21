@@ -1,4 +1,6 @@
-
+$green-color: hsl(120, 60%, 60%);
+$sat-green_color: hsl(120, 100%, 60%);
+$red-color: hsl(0, 100%, 65%);
 
 body {
     display: flex;
@@ -9,7 +11,7 @@ body {
 
 .App {
     width: 240px;
-    height: 400px;
+    height: 405px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
@@ -20,17 +22,17 @@ body {
 .formula {
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 90px;
     justify-content: space-around;
-    align-items: center;    
+    align-items: flex-end;    
     background-color: black;
     color: white;
-    padding-top: 20px;
+    padding: 20px 20px 0px 0px;    
 }
 
 .delete {    
     text-align: end;
-    color: green;
+    color: $green-color;
     background-color: black;
     border-bottom: 1px solid white;
     padding: 0px 20px;
@@ -44,8 +46,7 @@ body {
 
 .buttons {
     background-color: black;
-    padding: 5px 20px;
-    
+    padding: 5px 20px 5px 20px;    
 }
 
 .btn {
@@ -53,9 +54,23 @@ body {
     height: 50px;
     border-radius: 100%;    
     background-color: hsl(0, 0%, 10%);
-    color: hsl(120, 60%, 50%);
     font-weight: 600;
     font-size: 20px;
 }
 
+.btn_num {
+    color: white;
+}
 
+.btn_clear {
+    color: $red-color;
+}
+
+.btn_answer {
+    background-color: $sat-green-color;
+    color: white;
+}
+
+.btn_basic-ops {
+    color: $green-color;    
+}
