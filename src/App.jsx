@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Buttons from './Buttons'
 import './App.scss'
+import { flushSync } from 'react-dom'
 
 const buttons = [
   ['C', 'btn btn_clear'],
@@ -30,11 +31,18 @@ function App() {
   const [output, setOutput] = useState("")
   function handleClick(e) {
     // const last = formula[-1];
-
-    
+    const addtoFormula = setFormula(formula + e.target.value);
+    if (formula[-1] === '=') {
+        setOutput("");
+        setFormula("");
+      }
 
     switch (e.target.value) {
-      case "C": setFormula("");
+      
+      case "C": {
+        setFormula(""); 
+        setOutput("");
+      };
       break;
       case "0": if (formula === "0") {break};
       case "1":
@@ -45,19 +53,28 @@ function App() {
       case "6":
       case "7":
       case "8": if (formula === "0" || formula[-1] === "0") {break};
-      case "9": setFormula(formula + e.target.value);
+      case "9": addtoFormula;
       break;
       case "+": 
       case "-":
       case "/":
-      case "*":
-      case "%": 
+      case "*": 
+      case "%": {}; 
+      break;      
       case ".": 
-      if (true) {
-        setFormula(formula + e.target.value);
+      if ((/\d$/).test(formula) && ((/[\%\/\+\-]?\d+\.\d+$/).test(formula) === false)) {
+        addtoFormula;
       }
       break;
-      case "=": setOutput(eval(formula))
+      case "=": 
+        try {
+          setOutput(eval(formula));
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            setOutput("Syntax Error");
+          }        
+        };
+      
       break;
       
       // case "+":
